@@ -19,18 +19,46 @@ public class App {
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
 
-		Teacher teacher = new Teacher("Omar", "avatar");
+		/**
+		 * Método usando el patron DAO
+		 */
+	
 		TeacherDaoImpl teacherDaoImpl = new TeacherDaoImpl();
+		
+	/*Teacher teacher = new Teacher("Aldin", "su imagen");
 		teacherDaoImpl.saveTeacher(teacher);
 
-		Teacher teacher2 = new Teacher("Tavo", "avatar");
-		TeacherDaoImpl teacherDaoImpl2 = new TeacherDaoImpl();
-		teacherDaoImpl2.saveTeacher(teacher2);
-		// Course course = new Course("JEE", "Tema 1", "REST API");
-
 		List<Teacher> teachers = teacherDaoImpl.findAllTeachers();
-		
+
 		for (Teacher t : teachers)
-			System.out.println("Nombre: "+ t.getName());
+			System.out.println("Nombre: " + t.getName());*/
+
+		// update
+		Teacher teacher1 = teacherDaoImpl.findById(4L);
+		teacher1.setName("Update");
+		teacherDaoImpl.updateTeacher(teacher1);
+
+		/**
+		 * Método normal de consultas
+		 */
+
+		/*
+		 * SessionFactory sessionFactory; Configuration configuration = new
+		 * Configuration(); configuration.configure(); sessionFactory=
+		 * configuration.buildSessionFactory(); Session session =
+		 * sessionFactory.openSession();
+		 */
+
+		/*
+		 * Teacher teacher = new Teacher("Aldo","imagen"); session.beginTransaction();
+		 * session.save(teacher); session.getTransaction().commit(); session.close();
+		 */
+
+		/*
+		 * Course course= new Course("Android","Fundamentos", "Actividades");
+		 * session.beginTransaction(); session.save(course);
+		 * session.getTransaction().commit(); session.close();
+		 */
+
 	}
 }
